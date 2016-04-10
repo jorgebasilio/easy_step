@@ -1,0 +1,17 @@
+---
+  model_active_record:
+    action: create, update, new
+    steps: [name_template_one, name_template_two, name_template_three]
+    fields_for_step:
+      - name_template_one:
+        - field_one: [string, true]
+        - fields_for_model: other_model_active_record
+          attributes:
+            - field_other_model_one: [string, true]
+            - field_other_model_two: [string, true]
+        - field_two: [string, true]
+      - name_template_two:
+        - field_three: [integer, true]
+        - field_for: [float, false]
+      - name_template_three:
+        - field_five: [integer, true]
